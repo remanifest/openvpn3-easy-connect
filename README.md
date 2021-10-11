@@ -4,8 +4,8 @@ A shell script for easily connecting and disconnecting sessions with OpenVPN3
 ### Usage is simple:
 * Provide your `client.ovpn` file's location on line 4 of this script.
 * Optionally, provide your temp file location. By default, this is `/tmp`.
-        + This is used to capture, store and use the current openvpn3 session's ID when `./ovpn.sh connect` is passed.
-        + None of these files are retained.
+    * This is used to capture, store and use the current openvpn3 session's ID when `./ovpn.sh connect` is passed.
+    * None of these files are retained.
 * `chmod +x ./ovpn.sh`. Optionally, you can `mv ovpn.sh ovpn`.
 * Place the script somewhere in your PATH. `$HOME/.local/bin/` works nicely.
 
