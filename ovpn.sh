@@ -54,12 +54,27 @@ elif [ "$1" == "disconnect" ]; then
         echo -e "All active sessions have been disconnected."
     fi
 
+elif [ "$1" == "list" ]; then
+    
+    # List the openvpn3 sessions
+    sessionOutput=$(openvpn3 sessions-list)
+    
+    # If there are no sessions, let the user know that.
+    if [ "$sessionOutput" == "No sessions available" ]; then
+        echo -e "\nThere are no openvpn3 sessions for me to show!\n"
+    
+    # If one or more sessions are returned, disconnect them in succession.
+    else
+        openvpn3 sessions-list
+    fi
+
 # If no arguments are passed, tell the user how to interact with this script.
 else
     echo -e "\nAvailable options are as follows:
 
     \033[38;0;32mconnect\033[0m:\tPrompts you for username, password, and TOTP to initiate the connection.
     \033[38;0;31mdisconnect\033[0m:\tGets the existing session ID and disconnects.
+    \033[38;0;33mlist\033[0m:\tshows all currently active openvpn3 sessions.
 
 Please try again after passing one of the above arguments.\n"
 fi
